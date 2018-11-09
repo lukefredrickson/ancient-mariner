@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'source serif';
+    src: url(../data/fonts/SourceSerifVariable-Roman.ttf);
+}
+
+@font-face {
+    font-family: 'source serif italic';
+    src: url(../data/fonts/SourceSerifVariable-Italic.ttf);
+}

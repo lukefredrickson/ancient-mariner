@@ -1,0 +1,27 @@
+html {
+    font-family: 'source serif', monospace;
+    font-size: 1.5em;
+    animation-name: bold;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+h1, h3 {
+    font-family: 'source serif italic';
+}
+
+article {}
+
+p {
+    white-space: pre-line;
+}
+
+@keyframes bold {
+    0% {
+        font-variation-settings: 'wght' 0;
+    }
+    100% {
+        font-variation-settings: 'wght' 900;
+    }
+}
