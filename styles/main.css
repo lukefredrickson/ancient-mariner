@@ -1,27 +1,69 @@
-html {
-    font-family: 'source serif', monospace;
-    font-size: 1.5em;
-    animation-name: bold;
-    animation-duration: 2s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
+.main {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+        "top-nav"
+        "poem"
+        "bottom-nav";
+    width: 100%;
+    min-height: 100vh;
+    justify-items: center;
+    align-items: start;
 }
 
-h1, h3 {
-    font-family: 'source serif italic';
+.nav {
+    grid-area: top-nav;
+    margin-bottom: 2rem;
 }
 
-article {}
+.next-previous {
+    grid-area: bottom-nav;
+    margin-bottom: 3rem;
+}
 
-p {
+.nav__list, .next-previous__list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.nav__link, .next-previous__link {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-variation-settings: 'wght' 400;
+    color: #000;
+}
+
+.nav__link:hover, .next-previous__link:hover {
+    color: #3e5d83;
+}
+
+.poem {
+    justify-self: start;
+    margin: auto;
+}
+
+.poem__header {
+    font-size: 1.5rem;
+    line-height: 1rem;
+}
+
+.poem__stanza {
     white-space: pre-line;
 }
 
-@keyframes bold {
-    0% {
-        font-variation-settings: 'wght' 0;
-    }
-    100% {
-        font-variation-settings: 'wght' 900;
-    }
+.poem__stanza--highlighted {
+
+}
+
+.player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }

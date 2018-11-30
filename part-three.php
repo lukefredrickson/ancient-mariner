@@ -1,7 +1,7 @@
 <?php
 
 $path = "data/poem-text/";
-$fileName = "part1.csv";
+$fileName = "part3.csv";
 $fullPath = $path . $fileName;
 
 $file = fopen($fullPath, "r");
@@ -33,14 +33,14 @@ if ($file) {
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/main.css">
-    <title>Part 1 &#124; Rime of the Ancient Mariner</title>
+    <title>Part 3 &#124; Rime of the Ancient Mariner</title>
 </head>
 
 <body>
     <main class="main">
         <?php include("top-nav.php");?>
         <article class="poem">
-            <h1 class="poem__header">Part One</h1>
+            <h1 class="poem__header">Part Three</h1>
             <?php
                 foreach ($data as $stanza) {
                     echo "<p class=\"poem__stanza\">";
@@ -51,12 +51,13 @@ if ($file) {
         </article>
         <nav class="next-previous">
             <ol class="next-previous__list">
-                <li class="next-previous__list-item"><a href="part-two.php" class="next-previous__link">next</a></li>
+                <li class="next-previous__list-item"><a href="part-two.php" class="next-previous__link">previous</a></li>
+                <li class="next-previous__list-item"><a href="part-four.php" class="next-previous__link">next</a></li>
             </ol>
         </nav>
     </main>
     <audio class="player" id="player" controls>
-        <source src="data/doescher-reading/part1.mp3" type="audio/mpeg">
+        <source src="data/doescher-reading/part3.mp3" type="audio/mpeg">
     </audio>
 </body>
 
