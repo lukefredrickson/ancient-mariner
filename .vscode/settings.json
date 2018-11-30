@@ -1,0 +1,8 @@
+{
+    "liveServer.settings.useWebExt": true,
+    "liveServer.settings.proxy": {
+        "enable": true,
+        "baseUri": "/",
+        "proxyUri": "http://localhost/ancient-mariner/"
+    },
+}
