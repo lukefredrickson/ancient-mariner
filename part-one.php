@@ -1,5 +1,7 @@
 <?php
 
+//PARSE CSV//
+
 $path = "data/poem-text/";
 $fileName = "part1.csv";
 $fullPath = $path . $fileName;
@@ -9,12 +11,12 @@ $file = fopen($fullPath, "r");
 if ($file) {
     $headers[] = fgetcsv($file,0, "\t");
     while (!feof($file)) {
-        $data[] = fgetcsv($file,0, "\t");
+        $poemData[] = fgetcsv($file,0, "\t");
     }
     fclose($file);
     /*
     print_r($headers);
-    print_r($data);
+    print_r($poemData);
     */
 } else {
     /*
@@ -35,6 +37,10 @@ if ($file) {
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Part 1 &#124; Rime of the Ancient Mariner</title>
+    <script type="text/javascript">
+        let poemData = <?php echo json_encode($poemData);?>;
+        console.log(poemData);
+    </script>
 </head>
 
 <body>
@@ -46,9 +52,10 @@ if ($file) {
         <article class="poem">
             <h1 class="poem__header">Part One</h1>
             <?php
-                foreach ($data as $stanza) {
-                    echo "<p class=\"poem__stanza\">";
-                    echo $stanza[0];
+                //id each stanza with it's start time (seconds)
+                foreach ($poemData as $stanzaData) {
+                    echo "<p id=\"$stanzaData[1]\" class=\"poem__stanza\">";
+                    echo $stanzaData[0];
                     echo "</p>";
                 }
             ?>
@@ -65,6 +72,6 @@ if ($file) {
     <?php include("audio-player.php");?>
 </body>
 
-<script src="scripts/script.js"></script>
+<script type="text/javascript" src="scripts/script.js"></script>
 
 </html>

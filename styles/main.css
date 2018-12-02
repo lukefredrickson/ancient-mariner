@@ -92,7 +92,7 @@
 }
 
 .poem__stanza--highlighted {
-
+    color: red;
 }
 
 .audio-player {
