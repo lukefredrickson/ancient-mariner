@@ -33,12 +33,16 @@ if ($file) {
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Part 1 &#124; Rime of the Ancient Mariner</title>
 </head>
 
 <body>
-    <main class="main">
+    <header class="header">
+        <h1 class="header__title">The Rime of the Ancient Mariner</h1>
         <?php include("top-nav.php");?>
+    </header>
+    <main class="main">
         <article class="poem">
             <h1 class="poem__header">Part One</h1>
             <?php
@@ -55,9 +59,12 @@ if ($file) {
             </ol>
         </nav>
     </main>
-    <audio class="player" id="player" controls>
+    <audio class="audio-player__control" id="player">
         <source src="data/doescher-reading/part1.mp3" type="audio/mpeg">
     </audio>
+    <?php include("audio-player.php");?>
 </body>
+
+<script src="scripts/script.js"></script>
 
 </html>
