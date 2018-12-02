@@ -58,6 +58,8 @@ player.onended = () => {
     //stop timer
     if (timerId) {
         clearInterval(timerId);
+        //clear highlight
+        highlightStanza(-1);
     }
 };
 
@@ -88,6 +90,9 @@ function stepForward() {
     if ( checkCurrentStanza()+1 < stanzaStartTimes.length ) {
         player.currentTime = stanzaStartTimes[checkCurrentStanza()+1];
         updateHighlight();
+    } else {
+        player.currentTime = player.duration;
+        updateHighlight();
     }
 }
 
@@ -95,6 +100,9 @@ function stepForward() {
 function stepBackward() {
     if ( checkCurrentStanza()-1 >= 0 ) {
         player.currentTime = stanzaStartTimes[checkCurrentStanza()-1];
+        updateHighlight();
+    } else {
+        player.currentTime = 0;
         updateHighlight();
     }
 }
