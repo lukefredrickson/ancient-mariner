@@ -51,8 +51,12 @@ if ($file) {
             <?php
                 //id each stanza with it's start time (seconds)
                 foreach ($poemData as $stanzaData) {
+                    $lineData = explode("\n",$stanzaData[0]);
                     echo "<p id=\"$stanzaData[1]\" class=\"poem__stanza\">";
-                    echo $stanzaData[0];
+                    foreach($lineData as $line) {
+                        //span for highlighting individual lines, not whole p block
+                        echo "<span class=\"poem__line\">$line\n</span>";
+                    }
                     echo "</p>";
                 }
             ?>

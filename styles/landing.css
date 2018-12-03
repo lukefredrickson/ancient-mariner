@@ -48,7 +48,7 @@
 
 .title-header__subtitle {
     font-size: 1.25rem;
-    line-height: 0.25rem;
+    line-height: 0.4rem;
     font-variation-settings: 'wght' 400;
 }
 
@@ -85,6 +85,7 @@
 .nav__link {
     padding: 0.5rem 1rem;
     text-decoration: none;
+    font-family: 'source serif italic', serif;
     font-variation-settings: 'wght' 400;
     color: #fff;
 }

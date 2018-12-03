@@ -88,12 +88,22 @@
 
 .feedback-form__button {
     align-self: flex-end;
-    padding: 0.4rem 0.8rem;
     border: none;
     background-color: #222;
-    color: #fff;
+    width: 10rem;
+    height: 2.5rem;
     font-size: 0.8rem;
     font-family: 'source serif', serif;
+    color: #fff;
+    cursor: pointer;
+}
+
+.feedback-form__button:hover {
+    background-color: #444;
+}
+
+.feedback-form__button:active {
+    transform: translateY(0.1rem);
 }
 
 /*to account for no audio player*/
