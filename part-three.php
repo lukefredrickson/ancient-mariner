@@ -44,10 +44,7 @@ if ($file) {
 </head>
 
 <body>
-    <header class="header">
-        <h1 class="header__title">The Rime of the Ancient Mariner</h1>
-        <?php include("top-nav.php");?>
-    </header>
+    <?php include("header.php");?>
     <main class="main">
         <article class="poem">
             <h1 class="poem__header">Part Three</h1>
@@ -66,6 +63,7 @@ if ($file) {
                 <li class="next-previous__list-item"><a href="part-four.php" class="next-previous__link">next</a></li>
             </ol>
         </nav>
+        <?php include("footer.php");?>
     </main>
     <audio class="audio-player__control" id="player">
         <source src="data/doescher-reading/part3.mp3" type="audio/mpeg">

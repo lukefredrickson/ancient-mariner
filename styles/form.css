@@ -1,0 +1,102 @@
+.feedback-form__header {
+    margin-top: 1rem;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 40%;
+    margin: 1rem 0 3rem 0;
+    padding: 0;
+}
+
+.feedback-form__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.feedback-form__label {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.feedback-form__text-input {
+    width: 100%;
+    padding: 0.2rem 0.1rem;
+    border: none;
+    border-bottom: 1px solid #555;
+    font-size: 0.8rem;
+    font-family: 'source serif', serif;
+}
+
+.feedback-form__dropdown {
+    width: 100%;
+    padding: 0.1rem;
+    border: 1px solid #555;
+    font-size: 0.8rem;
+    font-family: 'source serif', serif;
+}
+
+.feedback-form__radio-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.feedback-form__radio-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    font-size: 0.8rem;
+}
+
+.feedback-form__radio {
+
+}
+
+.feedback-form__checkboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.feedback-form__checkbox-label {
+    font-size: 0.8rem;
+}
+
+.feedback-form__checkbox {
+
+}
+
+.feedback-form__textarea {
+    width: 100%;
+    padding: 0.1rem;
+    border: 1px solid #555;
+    font-size: 0.8rem;
+    font-family: 'source serif', serif;
+}
+
+.feedback-form__button {
+    align-self: flex-end;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.8rem;
+    font-family: 'source serif', serif;
+}
+
+/*to account for no audio player*/
+.footer {
+    padding-bottom: 2rem;
+}
