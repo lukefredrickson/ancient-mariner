@@ -1,57 +1,200 @@
-.header {
-
-}
-
-.header__title {
-
-}
-
-.nav__link {
-
-}
-
-.nav__link:hover {
-
-}
-
-
+/*PARTY*/
+/*PARTY OMINOUS*/
 /*GHASTLY*/
+.primary-content {
+  -webkit-transition: background-color 2s ease;
+  transition: background-color 2s ease;
+}
+
 .primary-content--ghastly {
-    background-color: #3f334d;
+  background-color: #232c23;
+}
+
+.primary-content--party {
+  background-color: #1e2b41;
+}
+
+.primary-content--party-ominous {
+  background-color: #161f30;
+}
+
+.poem {
+  -webkit-transition: color 2s ease;
+  transition: color 2s ease;
 }
 
 .poem--ghastly {
-    color: #eaf0ce;
+  color: #eaf0ce;
+}
+
+.poem--party {
+  color: #f8e8e2;
+}
+
+.poem--party-ominous {
+  color: #f8e8e2;
+}
+
+.poem__stanza .poem__line {
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease;
 }
 
 .poem__stanza--highlighted--ghastly .poem__line {
-    background-color: #007700;
+  background-color: #007700;
 }
 
+.poem__stanza--highlighted--party .poem__line {
+  background-color: #df5135;
+}
 
+.poem__stanza--highlighted--party-ominous .poem__line {
+  background-color: #c42915;
+}
 
 .next-previous__link {
-
+  -webkit-transition: color 1s ease;
+  transition: color 1s ease;
 }
 
 .next-previous__link:hover {
-
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
+.next-previous__link--ghastly {
+  color: #eaf0ce;
+}
 
+.next-previous__link--ghastly:hover {
+  color: #007700;
+}
+
+.next-previous__link--party {
+  color: #f8e8e2;
+}
+
+.next-previous__link--party:hover {
+  color: #df5135;
+}
+
+.next-previous__link--party-ominous {
+  color: #f8e8e2;
+}
+
+.next-previous__link--party-ominous:hover {
+  color: #c42915;
+}
+
+.header {
+  -webkit-transition: background-color 2s ease;
+  transition: background-color 2s ease;
+  -webkit-transition: color 2s ease;
+  transition: color 2s ease;
+}
+
+.header--ghastly {
+  background-color: #0c100c;
+  color: #eaf0ce;
+}
+
+.header--party {
+  background-color: #0e141e;
+  color: #f8e8e2;
+}
+
+.header--party-ominous {
+  background-color: #06080d;
+  color: #f8e8e2;
+}
+
+.nav__link {
+  -webkit-transition: color 1s ease;
+  transition: color 1s ease;
+}
+
+.nav__link:hover {
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.nav__link--ghastly {
+  color: #eaf0ce;
+}
+
+.nav__link--ghastly:hover {
+  color: #007700;
+}
+
+.nav__link--party {
+  color: #f8e8e2;
+}
+
+.nav__link--party:hover {
+  color: #df5135;
+}
+
+.nav__link--party-ominous {
+  color: #f8e8e2;
+}
+
+.nav__link--party-ominous:hover {
+  color: #c42915;
+}
 
 .footer {
+  -webkit-transition: background-color 2s ease;
+  transition: background-color 2s ease;
+  -webkit-transition: color 2s ease;
+  transition: color 2s ease;
+}
 
+.footer--ghastly {
+  background-color: #0c100c;
+  color: #eaf0ce;
+}
+
+.footer--party {
+  background-color: #0e141e;
+  color: #f8e8e2;
+}
+
+.footer--party-ominous {
+  background-color: #06080d;
+  color: #f8e8e2;
 }
 
 .footer__link {
-
+  -webkit-transition: color 1s ease;
+  transition: color 1s ease;
 }
 
 .footer__link:hover {
-
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
-.copyright {
-
+.footer__link--ghastly {
+  color: #eaf0ce;
 }
+
+.footer__link--ghastly:hover {
+  color: #007700;
+}
+
+.footer__link--party {
+  color: #f8e8e2;
+}
+
+.footer__link--party:hover {
+  color: #df5135;
+}
+
+.footer__link--party-ominous {
+  color: #f8e8e2;
+}
+
+.footer__link--party-ominous:hover {
+  color: #c42915;
+}
+/*# sourceMappingURL=moods.css.map */

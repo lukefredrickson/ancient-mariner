@@ -1,0 +1,172 @@
+/*PARTY*/
+$partyBackground: #1e2b41;
+$partyDarker: darken($partyBackground,10%);
+$partyText: #f8e8e2;
+$partyHighlight: #df5135;
+/*PARTY OMINOUS*/
+$partyOminousBackground: darken($partyBackground, 5%);
+$partyOminousDarker: darken($partyOminousBackground,10%);
+$partyOminousText: $partyText;
+$partyOminousHighlight: #c42915;
+/*GHASTLY*/
+$ghastlyBackground: #232c23;
+$ghastlyDarker: darken($ghastlyBackground,10%);
+$ghastlyText: #eaf0ce;
+$ghastlyHighlight: #007700;
+
+$quick: 1s;
+$medium: 2s;
+$slow: 5s;
+$timing: ease;
+
+
+.primary-content {
+    transition: background-color $medium $timing;
+    &--ghastly {
+        background-color: $ghastlyBackground;
+    }
+    &--party {
+        background-color: $partyBackground;
+    }
+    &--party-ominous {
+        background-color: $partyOminousBackground;
+    }
+}
+
+.poem {
+    transition: color $medium $timing;
+    &--ghastly {
+        color: $ghastlyText;
+    }
+    &--party {
+        color: $partyText;
+    }
+    &--party-ominous {
+        color: $partyOminousText;
+    }
+}
+
+.poem__stanza .poem__line {
+    transition: background-color $quick $timing;
+}
+
+.poem__stanza--highlighted {
+    &--ghastly .poem__line {
+        background-color: $ghastlyHighlight;
+    }
+    &--party .poem__line {
+        background-color: $partyHighlight;
+    }
+    &--party-ominous .poem__line {
+        background-color: $partyOminousHighlight;
+    }
+}
+
+.next-previous__link {
+    transition: color $quick $timing;
+    &:hover {
+        transition: color 0.25s $timing;
+    }
+    &--ghastly {
+        color: $ghastlyText;
+        &:hover {
+            color: $ghastlyHighlight;
+        }
+    }
+    &--party {
+        color: $partyText;
+        &:hover {
+            color: $partyHighlight;
+        }
+    }
+    &--party-ominous {
+        color: $partyOminousText;
+        &:hover {
+            color: $partyOminousHighlight;
+        }
+    }
+}
+
+.header {
+    transition: background-color $medium $timing;
+    transition: color $medium $timing;
+    &--ghastly {
+        background-color: $ghastlyDarker;
+        color: $ghastlyText;
+    }
+    &--party {
+        background-color: $partyDarker;
+        color: $partyText;
+    }
+    &--party-ominous {
+        background-color: $partyOminousDarker;
+        color: $partyOminousText;
+    }
+}
+
+.nav__link {
+    transition: color $quick $timing;
+    &:hover {
+        transition: color 0.5s $timing;
+    }
+    &--ghastly {
+        color: $ghastlyText;
+        &:hover {
+            color: $ghastlyHighlight;
+        }
+    }
+    &--party {
+        color: $partyText;
+        &:hover {
+            color: $partyHighlight;
+        }
+    }
+    &--party-ominous {
+        color: $partyOminousText;
+        &:hover {
+            color: $partyOminousHighlight;
+        }
+    }
+}
+
+.footer {
+    transition: background-color $medium $timing;
+    transition: color $medium $timing;
+    &--ghastly {
+        background-color: $ghastlyDarker;
+        color: $ghastlyText;
+    }
+    &--party {
+        background-color: $partyDarker;
+        color: $partyText;
+    }
+    &--party-ominous {
+        background-color: $partyOminousDarker;
+        color: $partyOminousText;
+    }
+}
+
+.footer__link {
+    transition: color $quick $timing;
+    &:hover {
+        transition: color 0.5s $timing;
+    }
+    &--ghastly {
+        color: $ghastlyText;
+        &:hover {
+            color: $ghastlyHighlight;
+        }
+    }
+    &--party {
+        color: $partyText;
+        &:hover {
+            color: $partyHighlight;
+        }
+    }
+    &--party-ominous {
+        color: $partyOminousText;
+        &:hover {
+            color: $partyOminousHighlight;
+        }
+    }
+}

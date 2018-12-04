@@ -1,4 +1,4 @@
-//STANZA HIGHLIGHTING//
+//STANZA HIGHLIGHTING & MOOD UPDATING//
 
 //initialize timer identification
 let timerId = null;
@@ -8,15 +8,15 @@ let stanzaMoods = poemData.map( (element) => element[2]).filter( (element) => (t
 console.log(stanzaStartTimes);
 console.log(stanzaMoods);
 var lastHighlightedStanzaID = -1;
-var lastStanzaMood = "";
+var lastMood = "";
 
 function update() {
     let currentIndex = checkCurrentStanza()
     let id = stanzaStartTimes[currentIndex];
     let mood = stanzaMoods[currentIndex];
-    if ( mood != lastStanzaMood ) {
+    if ( mood != lastMood ) {
         updateMood(mood);
-        lastStanzaMood = mood;
+        lastMood = mood;
     }
     if ( id != lastHighlightedStanzaID ) {
         updateHighlight(id);
@@ -41,9 +41,30 @@ function checkCurrentStanza() {
     return idIndex;
 }
 
+function updateMood(mood) {
+    updateMoodByClassName("primary-content", mood);
+    updateMoodByClassName("poem", mood);
+    updateMoodByClassName("poem__stanza--highlighted", mood);
+    updateMoodByClassName("next-previous__link", mood);
+    updateMoodByClassName("header", mood);
+    updateMoodByClassName("nav__link", mood);
+    updateMoodByClassName("footer", mood);
+    updateMoodByClassName("footer__link", mood);
+}
+
+function updateMoodByClassName(className, mood) {
+    let elements = document.getElementsByClassName(className);
+    Array.prototype.forEach.call(elements, (element) => {
+        if ( lastMood != "" ) {
+            element.classList.remove(className+"--"+lastMood);
+        }
+        element.classList.add(className+"--"+mood);
+    });
+}
+
 function updateHighlight(id) {
     let highlightedClass = "poem__stanza--highlighted"
-    let highlightedClassWithMood = highlightedClass+"--"+lastStanzaMood;
+    let highlightedClassWithMood = highlightedClass+"--"+lastMood;
 
     let oldStanzas = document.getElementsByClassName(highlightedClass);
     Array.prototype.forEach.call(oldStanzas, (element) => {
@@ -56,22 +77,6 @@ function updateHighlight(id) {
         stanza.classList.add(highlightedClass);
         stanza.classList.add(highlightedClassWithMood);
     }
-}
-
-function updateMood(mood) {
-    updateByClassName("primary-content", mood);
-    updateByClassName("poem", mood);
-    updateByClassName("poem__stanza--highlighted", mood);
-}
-
-function updateByClassName(className, mood) {
-    let elements = document.getElementsByClassName(className);
-    Array.prototype.forEach.call(elements, (element) => {
-        if ( lastStanzaMood != "" ) {
-            element.classList.remove(className+"--"+lastStanzaMood);
-        }
-        element.classList.add(className+"--"+mood);
-    });
 }
 
 
@@ -99,7 +104,7 @@ function playPause() {
         //initial update highlight
         update();
         //start timer
-        timerId = setInterval(function () { update() }, 1000);
+        timerId = setInterval(function () { update() }, 100);
         //change icon to pause
         playPauseIcon.classList.remove("fa-play");
         playPauseIcon.classList.add("fa-pause");
