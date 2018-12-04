@@ -1,0 +1,57 @@
+.header {
+
+}
+
+.header__title {
+
+}
+
+.nav__link {
+
+}
+
+.nav__link:hover {
+
+}
+
+
+/*GHASTLY*/
+.primary-content--ghastly {
+    background-color: #3f334d;
+}
+
+.poem--ghastly {
+    color: #eaf0ce;
+}
+
+.poem__stanza--highlighted--ghastly .poem__line {
+    background-color: #007700;
+}
+
+
+
+.next-previous__link {
+
+}
+
+.next-previous__link:hover {
+
+}
+
+
+
+.footer {
+
+}
+
+.footer__link {
+
+}
+
+.footer__link:hover {
+
+}
+
+.copyright {
+
+}

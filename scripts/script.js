@@ -14,13 +14,13 @@ function update() {
     let currentIndex = checkCurrentStanza()
     let id = stanzaStartTimes[currentIndex];
     let mood = stanzaMoods[currentIndex];
-    if ( id != lastHighlightedStanzaID ) {
-        lastHighlightedStanzaID = id;
-        updateHighlight(id);
-    }
     if ( mood != lastStanzaMood ) {
-        lastStanzaMood = mood;
         updateMood(mood);
+        lastStanzaMood = mood;
+    }
+    if ( id != lastHighlightedStanzaID ) {
+        updateHighlight(id);
+        lastHighlightedStanzaID = id;
     }
 }
 
@@ -42,19 +42,36 @@ function checkCurrentStanza() {
 }
 
 function updateHighlight(id) {
-    let highlitedClassName = "poem__stanza--highlighted"
-    let oldStanzas = document.getElementsByClassName(highlitedClassName);
-    if ( oldStanzas.length > 0 ) {
-        oldStanzas[0].classList.remove(highlitedClassName);
-    }
+    let highlightedClass = "poem__stanza--highlighted"
+    let highlightedClassWithMood = highlightedClass+"--"+lastStanzaMood;
+
+    let oldStanzas = document.getElementsByClassName(highlightedClass);
+    Array.prototype.forEach.call(oldStanzas, (element) => {
+        element.classList.remove(highlightedClass);
+        element.classList.remove(highlightedClassWithMood);
+    });
+
     let stanza = document.getElementById(id);
     if ( stanza != null ) {
-        stanza.classList.add(highlitedClassName);
+        stanza.classList.add(highlightedClass);
+        stanza.classList.add(highlightedClassWithMood);
     }
 }
 
 function updateMood(mood) {
+    updateByClassName("primary-content", mood);
+    updateByClassName("poem", mood);
+    updateByClassName("poem__stanza--highlighted", mood);
+}
 
+function updateByClassName(className, mood) {
+    let elements = document.getElementsByClassName(className);
+    Array.prototype.forEach.call(elements, (element) => {
+        if ( lastStanzaMood != "" ) {
+            element.classList.remove(className+"--"+lastStanzaMood);
+        }
+        element.classList.add(className+"--"+mood);
+    });
 }
 
 
@@ -82,7 +99,7 @@ function playPause() {
         //initial update highlight
         update();
         //start timer
-        timerId = setInterval(function () { update() }, 100);
+        timerId = setInterval(function () { update() }, 1000);
         //change icon to pause
         playPauseIcon.classList.remove("fa-play");
         playPauseIcon.classList.add("fa-pause");
