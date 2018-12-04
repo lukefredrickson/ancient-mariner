@@ -1,0 +1,74 @@
+
+
+.poem {
+    grid-area: primary;
+    justify-self: start;
+    margin: auto;
+}
+
+.poem__header {
+    font-size: 1.5rem;
+    line-height: 1rem;
+}
+
+.poem__stanza {
+    white-space: pre-line;
+}
+
+.poem__stanza--highlighted .poem__line {
+    background-color: yellow;
+}
+
+.next-previous {
+    margin: 2rem 0 4rem 0;
+}
+
+.next-previous__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.next-previous__link {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-variation-settings: 'wght' 600;
+    font-family: 'source serif italic', serif;
+    color: #000;
+}
+
+.next-previous__link:hover {
+    color: #3e5d83;
+}
+
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0.3rem 0;
+    background-color: rgba(0, 0, 0, 0.8);;
+}
+
+.audio-player__button {
+    background: none;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.audio-player__button:active {
+    font-size: 0.9rem;
+}

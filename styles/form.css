@@ -1,15 +1,24 @@
-.feedback-form__header {
-    margin-top: 1rem;
-}
-
 .feedback-form {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     width: 40%;
-    margin: 1rem 0 3rem 0;
+    margin: 2rem 0 3rem 0;
     padding: 0;
+}
+
+.feedback-form__header {
+    margin-top: 1rem;
+}
+
+.feedback-form__subheader {
+    margin: 0;
+}
+
+.feedback-form__error {
+    margin: 0;
+    color: red;
 }
 
 .feedback-form__section {
@@ -33,6 +42,10 @@
     border-bottom: 1px solid #555;
     font-size: 0.8rem;
     font-family: 'source serif', serif;
+}
+
+.feedback-form__text-input--error {
+    border-color: red;
 }
 
 .feedback-form__dropdown {
@@ -88,12 +101,11 @@
 
 .feedback-form__button {
     align-self: flex-end;
+    padding: 0.8rem 1.6rem;
     border: none;
     background-color: #222;
-    width: 10rem;
-    height: 2.5rem;
-    font-size: 0.8rem;
     font-family: 'source serif', serif;
+    font-size: 0.8rem;
     color: #fff;
     cursor: pointer;
 }

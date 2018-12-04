@@ -59,6 +59,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $file = fopen($fullPath, "a");
         fputcsv($file, $data);
         fclose($file);
+
+        //EMAIL TO USER//
+        $message = "<h2>Your Feedback:</h2>";
+        $message .= "Reason: $reason";
+        $message .= "Rating: $rating/5";
+        $message .= "Comment: $comment";
+        $message .= "Found site through:";
+        if ($fromPortfolio) $message .= "Luke's portfolio";
+        if ($fromFriendFamily) $message .= "A friend or family member";
+        if ($fromSchoolWork) $message .= "School or work";
+        if ($fromOther) $message .= "Another way";
+        $messageTop = '<html><head><title>' . $subject . '</title></head><body>';
+        $mailMessage = $messageTop . $message;
+        $to = $email;
+        $from = "Luke Fredrickson <lfredric@uvm.edu>";
+        $subject = "Thanks for your feedback, $name!";
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=utf-8\r\n";
+        $headers .= "From: " . $from . "\r\n";
+        mail($to, $subject, $mailMessage, $headers);
     }
 }
 
@@ -78,8 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 </head>
 
 <body>
+    <main class="wrapper">
     <?php include("header.php");?>
-    <main class="main">
+    <section class="primary-content">
         <h1 class="feedback-form__header">Feedback</h1>
         <?php
         //DEBUGGING PRINT STATEMENTS//
@@ -104,29 +125,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         }
 
         //ERRORS PRESENT//
-        elseif (!empty($errors)) {
-            echo("<h3 class=\"feedback-form__subheader\">Oops! Looks like some information is missing.</h3>");
-        }
+        else {
+            if (!empty($errors)) {
+                echo("<h3 class=\"feedback-form__subheader\">Oops! Looks like some information is missing.</h3>");
+                foreach ($errors as $error) {
+                    echo("<h4 class=\"feedback-form__error\">$error</h4>");
+                }
+            }
         ?>
-        <form action="feedback.php<?php //echo(htmlspecialchars($_SERVER["PHP_SELF"], ENT_QUOTES, "UTF-8")); ?>" id="feedback-form" class="feedback-form" method="post">
+        <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"], ENT_QUOTES, "UTF-8")); ?>" id="feedback-form" class="feedback-form" method="post">
             <section class="feedback-form__section">
                 <label class="feedback-form__label">First Name*</label>
-                <input class="feedback-form__text-input" type="text" maxlength="50" name="name">
+                <input class="feedback-form__text-input <?php if ($nameError) echo "feedback-form__text-input--error"?>"
+                value="<?php echo $name;?>" type="text" maxlength="50" name="name">
             </section>
             
             <section class="feedback-form__section">
                 <label class="feedback-form__label">Email*</label>
-                <input class="feedback-form__text-input" type="text" maxlength="50" name="email">
+                <input class="feedback-form__text-input <?php if ($emailError) echo "feedback-form__text-input--error"?>"
+                    value="<?php echo $email;?>" type="text" maxlength="50" name="email">
             </section>
 
             <section class="feedback-form__section">
                 <label class="feedback-form__label">Reason for Feedback</label>
                 <select class="feedback-form__dropdown" name="reason">
-                    <option value="unspecified"></option>
-                    <option value="contact">Contact Luke</option>
-                    <option value="bug">Found a bug</option>
-                    <option value="critisism">Constructive critisism</option>
-                    <option value="complaint">Thoughtless complaints</option>
+                    <option <?php if ($reason=="") echo("selected");?>
+                        value=""></option>
+                    <option <?php if ($reason=="contact") echo("selected");?>
+                        value="contact">Contact Luke</option>
+                    <option <?php if ($reason=="bug") echo("selected");?>
+                        value="bug">Found a bug</option>
+                    <option <?php if ($reason=="critisism") echo("selected");?>
+                        value="critisism">Constructive critisism</option>
+                    <option <?php if ($reason=="complaint") echo("selected");?>
+                        value="complaint">Thoughtless complaints</option>
                 </select>
             </section>
             
@@ -134,23 +166,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 <label class="feedback-form__label">Rating</label>
                 <section class="feedback-form__radio-buttons">
                     <label class="feedback-form__radio-label">
-                        <input class="feedback-form__radio" type="radio" name="rating" value="1">
+                        <input class="feedback-form__radio" type="radio" name="rating" value="1"
+                        <?php if ($rating==1) echo(" checked");?>>
                         1
                     </label>
                     <label class="feedback-form__radio-label">
-                        <input class="feedback-form__radio" type="radio" name="rating" value="2">
+                        <input class="feedback-form__radio" type="radio" name="rating" value="2"
+                        <?php if ($rating==2) echo(" checked");?>>
                         2
                     </label>
                     <label class="feedback-form__radio-label">
-                        <input class="feedback-form__radio" type="radio" name="rating" value="3">
+                        <input class="feedback-form__radio" type="radio" name="rating" value="3"
+                        <?php if ($rating==3) echo(" checked");?>>
                         3
                     </label>
                     <label class="feedback-form__radio-label">
-                        <input class="feedback-form__radio" type="radio" name="rating" value="4">
+                        <input class="feedback-form__radio" type="radio" name="rating" value="4"
+                        <?php if ($rating==4) echo(" checked");?>>
                         4
                     </label>
                     <label class="feedback-form__radio-label">
-                        <input class="feedback-form__radio" type="radio" name="rating" value="5">
+                        <input class="feedback-form__radio" type="radio" name="rating" value="5"
+                        <?php if ($rating==5) echo(" checked");?>>
                         5
                     </label>
                 </section>
@@ -160,19 +197,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 <label class="feedback-form__label">What brought you here?</label>
                 <section class="feedback-form__checkboxes">
                     <label class="feedback-form__checkbox-label">
-                        <input class="feedback-form__checkbox" type="checkbox" name="portfolio" value="portfolio">
+                        <input class="feedback-form__checkbox" type="checkbox" name="portfolio" value="portfolio"
+                        <?php if ($fromPortfolio) echo(" checked");?>>
                         Luke's portfolio
                     </label>
                     <label class="feedback-form__checkbox-label">
-                        <input class="feedback-form__checkbox" type="checkbox" name="friendFamily" value="friend-family">
+                        <input class="feedback-form__checkbox" type="checkbox" name="friendFamily" value="friend-family"
+                        <?php if ($fromFriendFamily) echo(" checked");?>>
                         A friend or family member
                     </label>
                     <label class="feedback-form__checkbox-label">
-                        <input class="feedback-form__checkbox" type="checkbox" name="schoolWork" value="school-work">
+                        <input class="feedback-form__checkbox" type="checkbox" name="schoolWork" value="school-work"
+                        <?php if ($fromSchoolWork) echo(" checked");?>>
                         School or work
                     </label>
                     <label class="feedback-form__checkbox-label">
-                        <input class="feedback-form__checkbox" type="checkbox" name="other" value="other">
+                        <input class="feedback-form__checkbox" type="checkbox" name="other" value="other"
+                        <?php if ($fromOther) echo(" checked");?>>
                         Other
                     </label>
                 </section>
@@ -180,14 +221,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             
             <section class="feedback-form__section">
                 <label class="feedback-form__label">Comment</label>
-                <textarea class="feedback-form__textarea" name="comment"></textarea>
+                <textarea class="feedback-form__textarea" name="comment"><?php echo $comment;?></textarea>
             </section>
 
             <section class="feedback-form__section">
                 <input class="feedback-form__button" id="submit" name="submit" type="submit" value="Submit Feedback">
             </section>
         </form>
-        <?php include("footer.php");?>
+        <?php
+        }
+        ?>
+    </section>
+    <?php include("footer.php");?>
     </main>
 </body>
 

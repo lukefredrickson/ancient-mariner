@@ -1,11 +1,19 @@
-.main {
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    width: 100%;
+    min-height: 100vh;
     justify-items: center;
-    align-items: center;
+    align-items: start;
 }
 
 .header {
+    grid-area: header;
     padding: 2rem 0;
     margin-bottom: 1rem;
     display: flex;
@@ -13,6 +21,7 @@
     justify-content: center;
     align-items: center;
     background-color: #222;
+    width: 100%;
 }
 
 .header__title {
@@ -27,11 +36,7 @@
     
 }
 
-.next-previous {
-    margin: 2rem 0 4rem 0;
-}
-
-.nav__list, .next-previous__list {
+.nav__list {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -46,15 +51,11 @@
     text-align: center;
 }
 
-.nav__link, .next-previous__link {
+.nav__link {
     padding: 0.5rem 1rem;
     text-decoration: none;
     font-variation-settings: 'wght' 400;
     font-family: 'source serif italic', serif;
-    color: #000;
-}
-
-.nav__link {
     color: #fff;
 }
 
@@ -62,61 +63,17 @@
     color: #ddd;
 }
 
-.next-previous__link {
-    font-variation-settings: 'wght' 600;
-}
-
-.next-previous__link:hover {
-    color: #3e5d83;
-}
-
-.poem {
-    grid-area: primary;
-    justify-self: start;
-    margin: auto;
-}
-
-.poem__header {
-    font-size: 1.5rem;
-    line-height: 1rem;
-}
-
-.poem__stanza {
-    white-space: pre-line;
-}
-
-.poem__stanza--highlighted .poem__line {
-    background-color: yellow;
-}
-
-.audio-player {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.primary-content {
+    grid-area: main;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 0.3rem 0;
-    background-color: rgba(0, 0, 0, 0.8);;
-}
-
-.audio-player__button {
-    background: none;
-    border: none;
-    width: 2rem;
-    height: 2rem;
-    font-size: 1rem;
-    padding: 0.5rem;
-    margin: 0 1rem;
-    cursor: pointer;
-    color: #fff;
-}
-
-.audio-player__button:active {
-    font-size: 0.9rem;
+    align-items: center;
+    width: 100%;
 }
 
 .footer {
+    grid-area: footer;
     display: flex;
     flex-direction: column;
     justify-content: center;
