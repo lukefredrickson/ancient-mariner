@@ -61,24 +61,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         fclose($file);
 
         //EMAIL TO USER//
-        $message = "<h2>Your Feedback:</h2>";
-        $message .= "Reason: $reason";
-        $message .= "Rating: $rating/5";
-        $message .= "Comment: $comment";
-        $message .= "Found site through:";
-        if ($fromPortfolio) $message .= "Luke's portfolio";
-        if ($fromFriendFamily) $message .= "A friend or family member";
-        if ($fromSchoolWork) $message .= "School or work";
-        if ($fromOther) $message .= "Another way";
-        $messageTop = '<html><head><title>' . $subject . '</title></head><body>';
-        $mailMessage = $messageTop . $message;
         $to = $email;
         $from = "Luke Fredrickson <lfredric@uvm.edu>";
         $subject = "Thanks for your feedback, $name!";
+
         $headers = "MIME-Version: 1.0\r\n";
         $headers .= "Content-type: text/html; charset=utf-8\r\n";
         $headers .= "From: " . $from . "\r\n";
-        mail($to, $subject, $mailMessage, $headers);
+
+        $message = '<html><head><title>' . $subject . '</title></head><body>';
+        $message .= "<h2>Your Feedback:</h2><hr>";
+        if (!empty($reason)) $message .= "<p>Reason: $reason</p>";
+        if (!empty($rating)) $message .= "<p>Rating: $rating/5</p>";
+        if (!empty($comment)) $message .= "<p>Comment:</p><p>$comment</p>";
+        if ($fromPortfolio || $fromFriendFamily || $fromSchoolWork || $fromOther) $message .= "<p>Found site through:</p><ul>";
+        if ($fromPortfolio) $message .= "<li>Luke's portfolio</li>";
+        if ($fromFriendFamily) $message .= "<li>A friend or family member</li>";
+        if ($fromSchoolWork) $message .= "<li>School or work</li>";
+        if ($fromOther) $message .= "<li>Another way</li>";
+        if ($fromPortfolio || $fromFriendFamily || $fromSchoolWork || $fromOther) $message .= "</ul><hr>";
+        $message .= "<p>Visit <a href=\"http://www.lukefredrickson.info/\">www.lukefredrickson.info</a> for more of Luke's work.</p></body>";
+
+        mail($to, $subject, $message, $headers);
     }
 }
 
@@ -151,14 +155,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 <select class="feedback-form__dropdown" name="reason">
                     <option <?php if ($reason=="") echo("selected");?>
                         value=""></option>
-                    <option <?php if ($reason=="contact") echo("selected");?>
-                        value="contact">Contact Luke</option>
-                    <option <?php if ($reason=="bug") echo("selected");?>
-                        value="bug">Found a bug</option>
-                    <option <?php if ($reason=="critisism") echo("selected");?>
-                        value="critisism">Constructive critisism</option>
-                    <option <?php if ($reason=="complaint") echo("selected");?>
-                        value="complaint">Thoughtless complaints</option>
+                    <option <?php if ($reason=="Contact Luke") echo("selected");?>
+                        value="Contact Luke">Contact Luke</option>
+                    <option <?php if ($reason=="Found a bug") echo("selected");?>
+                        value="Found a bug">Found a bug</option>
+                    <option <?php if ($reason=="Constructive critisism") echo("selected");?>
+                        value="Constructive critisism">Constructive critisism</option>
                 </select>
             </section>
             
