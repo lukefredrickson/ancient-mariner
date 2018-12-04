@@ -3,15 +3,24 @@
 //initialize timer identification
 let timerId = null;
 //poemData defined in part-<part#>.php
-let stanzaStartTimes = poemData.map( (element) => parseInt(element[1], 10)).filter( (element) => !isNaN(element));
+let stanzaStartTimes = poemData.map( (element) => parseFloat(element[1], 10)).filter( (element) => !isNaN(element));
+let stanzaMoods = poemData.map( (element) => element[2]).filter( (element) => (typeof element != 'undefined'));
 console.log(stanzaStartTimes);
+console.log(stanzaMoods);
 var lastHighlightedStanzaID = -1;
+var lastStanzaMood = "";
 
-function updateHighlight() {
-    let id = stanzaStartTimes[checkCurrentStanza()];
+function update() {
+    let currentIndex = checkCurrentStanza()
+    let id = stanzaStartTimes[currentIndex];
+    let mood = stanzaMoods[currentIndex];
     if ( id != lastHighlightedStanzaID ) {
         lastHighlightedStanzaID = id;
-        highlightStanza(id);
+        updateHighlight(id);
+    }
+    if ( mood != lastStanzaMood ) {
+        lastStanzaMood = mood;
+        updateMood(mood);
     }
 }
 
@@ -27,11 +36,12 @@ function checkCurrentStanza() {
     });
     console.log("Index\t" + idIndex);
     console.log("ID\t" + stanzaStartTimes[idIndex]);
+    console.log("Mood\t" + stanzaMoods[idIndex]);
     console.log("\n");
     return idIndex;
 }
 
-function highlightStanza(id) {
+function updateHighlight(id) {
     let highlitedClassName = "poem__stanza--highlighted"
     let oldStanzas = document.getElementsByClassName(highlitedClassName);
     if ( oldStanzas.length > 0 ) {
@@ -43,6 +53,9 @@ function highlightStanza(id) {
     }
 }
 
+function updateMood(mood) {
+
+}
 
 
 //AUDIO PLAYER//
@@ -59,7 +72,7 @@ player.onended = () => {
     if (timerId) {
         clearInterval(timerId);
         //clear highlight
-        highlightStanza(-1);
+        updateHighlight(-1);
     }
 };
 
@@ -67,9 +80,9 @@ function playPause() {
     if (player.paused) {
         player.play();
         //initial update highlight
-        updateHighlight();
+        update();
         //start timer
-        timerId = setInterval(function () { updateHighlight() }, 100);
+        timerId = setInterval(function () { update() }, 100);
         //change icon to pause
         playPauseIcon.classList.remove("fa-play");
         playPauseIcon.classList.add("fa-pause");
@@ -89,10 +102,10 @@ function playPause() {
 function stepForward() {
     if ( checkCurrentStanza()+1 < stanzaStartTimes.length ) {
         player.currentTime = stanzaStartTimes[checkCurrentStanza()+1];
-        updateHighlight();
+        update();
     } else {
         player.currentTime = player.duration;
-        updateHighlight();
+        update();
     }
 }
 
@@ -100,10 +113,10 @@ function stepForward() {
 function stepBackward() {
     if ( checkCurrentStanza()-1 >= 0 ) {
         player.currentTime = stanzaStartTimes[checkCurrentStanza()-1];
-        updateHighlight();
+        update();
     } else {
         player.currentTime = 0;
-        updateHighlight();
+        update();
     }
 }
 
