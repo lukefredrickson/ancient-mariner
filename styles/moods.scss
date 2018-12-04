@@ -1,16 +1,31 @@
 /*PARTY*/
 $partyBackground: #1e2b41;
-$partyDarker: darken($partyBackground,10%);
+$partyBackgroundDarker: darken($partyBackground,10%);
 $partyText: #f8e8e2;
 $partyHighlight: #df5135;
 /*PARTY OMINOUS*/
 $partyOminousBackground: darken($partyBackground, 5%);
-$partyOminousDarker: darken($partyOminousBackground,10%);
+$partyOminousBackgroundDarker: darken($partyOminousBackground,10%);
 $partyOminousText: $partyText;
 $partyOminousHighlight: #c42915;
+/*HOPEFUL*/
+$hopefulBackground: #cadce6;
+$hopefulBackgroundDarker: darken($hopefulBackground,10%);
+$hopefulText: #192835;
+$hopefulHighlight: #ffca3a;
+/*STORM*/
+$stormBackground: #0d1321;
+$stormBackgroundDarker: darken($stormBackground,10%);
+$stormText: #ffffff;
+$stormHighlight: #4b6983;
+/*ICE*/
+$iceBackground: #b5fcf0;
+$iceBackgroundDarker: darken($iceBackground,10%);
+$iceText: #172623;
+$iceHighlight: #19c583;
 /*GHASTLY*/
 $ghastlyBackground: #232c23;
-$ghastlyDarker: darken($ghastlyBackground,10%);
+$ghastlyBackgroundDarker: darken($ghastlyBackground,10%);
 $ghastlyText: #eaf0ce;
 $ghastlyHighlight: #007700;
 
@@ -20,59 +35,92 @@ $slow: 5s;
 $timing: ease;
 
 
-.primary-content {
-    transition: background-color $medium $timing;
-    &--ghastly {
-        background-color: $ghastlyBackground;
-    }
-    &--party {
-        background-color: $partyBackground;
-    }
-    &--party-ominous {
-        background-color: $partyOminousBackground;
-    }
-}
-
-.poem {
-    transition: color $medium $timing;
-    &--ghastly {
-        color: $ghastlyText;
-    }
-    &--party {
-        color: $partyText;
-    }
-    &--party-ominous {
-        color: $partyOminousText;
-    }
-}
-
 .poem__stanza .poem__line {
     transition: background-color $quick $timing;
 }
 
 .poem__stanza--highlighted {
-    &--ghastly .poem__line {
-        background-color: $ghastlyHighlight;
-    }
     &--party .poem__line {
         background-color: $partyHighlight;
     }
     &--party-ominous .poem__line {
         background-color: $partyOminousHighlight;
     }
+    &--hopeful .poem__line {
+        background-color: $hopefulHighlight;
+    }
+    &--storm .poem__line {
+        background-color: $stormHighlight;
+    }
+    &--ice .poem__line {
+        background-color: $iceHighlight;
+    }
+    &--ghastly .poem__line {
+        background-color: $ghastlyHighlight;
+    }
 }
 
-.next-previous__link {
+.primary-content {
+    transition: background-color $medium $timing, color $medium $timing;
+    &--party {
+        background-color: $partyBackground;
+        color: $partyText;
+    }
+    &--party-ominous {
+        background-color: $partyOminousBackground;
+        color: $partyOminousText;
+    }
+    &--hopeful {
+        background-color: $hopefulBackground;
+        color: $hopefulText;
+    }
+    &--storm {
+        background-color: $stormBackground;
+        color: $stormText;
+    }
+    &--ice {
+        background-color: $iceBackground;
+        color: $iceText;
+    }
+    &--ghastly {
+        background-color: $ghastlyBackground;
+        color: $ghastlyText;
+    }
+}
+
+.header, .footer {
+    transition: background-color $medium $timing, color $medium $timing;
+    &--party {
+        background-color: $partyBackgroundDarker;
+        color: $partyText;
+    }
+    &--party-ominous {
+        background-color: $partyOminousBackgroundDarker;
+        color: $partyOminousText;
+    }
+    &--hopeful {
+        background-color: $hopefulBackgroundDarker;
+        color: $hopefulText;
+    }
+    &--storm {
+        background-color: $stormBackgroundDarker;
+        color: $stormText;
+    }
+    &--ice {
+        background-color: $iceBackgroundDarker;
+        color: $iceText;
+    }
+    &--ghastly {
+        background-color: $ghastlyBackgroundDarker;
+        color: $ghastlyText;
+    }
+}
+
+.next-previous__link, .nav__link, .footer__link {
     transition: color $quick $timing;
     &:hover {
         transition: color 0.25s $timing;
     }
-    &--ghastly {
-        color: $ghastlyText;
-        &:hover {
-            color: $ghastlyHighlight;
-        }
-    }
     &--party {
         color: $partyText;
         &:hover {
@@ -85,88 +133,28 @@ $timing: ease;
             color: $partyOminousHighlight;
         }
     }
-}
-
-.header {
-    transition: background-color $medium $timing;
-    transition: color $medium $timing;
-    &--ghastly {
-        background-color: $ghastlyDarker;
-        color: $ghastlyText;
+    &--hopeful {
+        color: $hopefulText;
+        &:hover {
+            color: $hopefulHighlight;
+        }
     }
-    &--party {
-        background-color: $partyDarker;
-        color: $partyText;
+    &--storm {
+        color: $stormText;
+        &:hover {
+            color: $stormHighlight;
+        }
     }
-    &--party-ominous {
-        background-color: $partyOminousDarker;
-        color: $partyOminousText;
-    }
-}
-
-.nav__link {
-    transition: color $quick $timing;
-    &:hover {
-        transition: color 0.5s $timing;
+    &--ice {
+        color: $iceText;
+        &:hover {
+            color: $iceHighlight;
+        }
     }
     &--ghastly {
         color: $ghastlyText;
         &:hover {
             color: $ghastlyHighlight;
-        }
-    }
-    &--party {
-        color: $partyText;
-        &:hover {
-            color: $partyHighlight;
-        }
-    }
-    &--party-ominous {
-        color: $partyOminousText;
-        &:hover {
-            color: $partyOminousHighlight;
-        }
-    }
-}
-
-.footer {
-    transition: background-color $medium $timing;
-    transition: color $medium $timing;
-    &--ghastly {
-        background-color: $ghastlyDarker;
-        color: $ghastlyText;
-    }
-    &--party {
-        background-color: $partyDarker;
-        color: $partyText;
-    }
-    &--party-ominous {
-        background-color: $partyOminousDarker;
-        color: $partyOminousText;
-    }
-}
-
-.footer__link {
-    transition: color $quick $timing;
-    &:hover {
-        transition: color 0.5s $timing;
-    }
-    &--ghastly {
-        color: $ghastlyText;
-        &:hover {
-            color: $ghastlyHighlight;
-        }
-    }
-    &--party {
-        color: $partyText;
-        &:hover {
-            color: $partyHighlight;
-        }
-    }
-    &--party-ominous {
-        color: $partyOminousText;
-        &:hover {
-            color: $partyOminousHighlight;
         }
     }
 }
