@@ -6,13 +6,16 @@
 /*DEATH*/
 /*STAGNANT*/
 /*GHASTLY*/
+/*ELATED*/
+/*SUNSET*/
+/*HORROR*/
 .poem__stanza .poem__line {
   -webkit-transition: background-color 1s ease;
   transition: background-color 1s ease;
 }
 
 .poem__stanza--highlighted--party .poem__line {
-  background-color: #ce533a;
+  background-color: #c06654;
 }
 
 .poem__stanza--highlighted--party-ominous .poem__line {
@@ -41,6 +44,18 @@
 
 .poem__stanza--highlighted--ghastly .poem__line {
   background-color: #357035;
+}
+
+.poem__stanza--highlighted--elated .poem__line {
+  background-color: #ed6a5a;
+}
+
+.poem__stanza--highlighted--sunset .poem__line {
+  background-color: #ff923f;
+}
+
+.poem__stanza--highlighted--horror .poem__line {
+  background-color: #8a1717;
 }
 
 .primary-content, .header, .footer {
@@ -88,6 +103,21 @@
   color: #eaf0ce;
 }
 
+.primary-content--elated, .header--elated, .footer--elated {
+  background-color: #dee3ea;
+  color: #000000;
+}
+
+.primary-content--sunset, .header--sunset, .footer--sunset {
+  background-color: #a53860;
+  color: #0b032d;
+}
+
+.primary-content--horror, .header--horror, .footer--horror {
+  background-color: #300000;
+  color: #ffffff;
+}
+
 .header--party, .footer--party {
   background-color: #0e141e;
 }
@@ -120,6 +150,18 @@
   background-color: #0a0e0a;
 }
 
+.header--elated, .footer--elated {
+  background-color: #a0aec2;
+}
+
+.header--sunset, .footer--sunset {
+  background-color: #7f2b4a;
+}
+
+.header--horror, .footer--horror {
+  background-color: black;
+}
+
 .next-previous__link, .nav__link, .footer__link {
   -webkit-transition: color 1s ease;
   transition: color 1s ease;
@@ -135,7 +177,7 @@
 }
 
 .next-previous__link--party:hover, .nav__link--party:hover, .footer__link--party:hover {
-  color: #ce533a;
+  color: #c06654;
 }
 
 .next-previous__link--party-ominous, .nav__link--party-ominous, .footer__link--party-ominous {
@@ -192,5 +234,29 @@
 
 .next-previous__link--ghastly:hover, .nav__link--ghastly:hover, .footer__link--ghastly:hover {
   color: #459345;
+}
+
+.next-previous__link--elated, .nav__link--elated, .footer__link--elated {
+  color: #000000;
+}
+
+.next-previous__link--elated:hover, .nav__link--elated:hover, .footer__link--elated:hover {
+  color: #f29488;
+}
+
+.next-previous__link--sunset, .nav__link--sunset, .footer__link--sunset {
+  color: #0b032d;
+}
+
+.next-previous__link--sunset:hover, .nav__link--sunset:hover, .footer__link--sunset:hover {
+  color: #ffaf72;
+}
+
+.next-previous__link--horror, .nav__link--horror, .footer__link--horror {
+  color: #ffffff;
+}
+
+.next-previous__link--horror:hover, .nav__link--horror:hover, .footer__link--horror:hover {
+  color: #b61e1e;
 }
 /*# sourceMappingURL=moods.css.map */

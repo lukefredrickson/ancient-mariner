@@ -2,7 +2,7 @@
 $partyBackground: #1e2b41;
 $partyBackgroundDarker: darken($partyBackground,10%);
 $partyText: #f8e8e2;
-$partyHighlight: #ce533a;
+$partyHighlight: #c06654;
 /*PARTY OMINOUS*/
 $partyOminousBackground: darken($partyBackground, 10%);
 $partyOminousBackgroundDarker: darken($partyOminousBackground,10%);
@@ -38,6 +38,22 @@ $ghastlyBackground: #202b20;
 $ghastlyBackgroundDarker: darken($ghastlyBackground,10%);
 $ghastlyText: #eaf0ce;
 $ghastlyHighlight: #357035;
+/*ELATED*/
+$elatedBackground: #dee3ea;
+$elatedBackgroundDarker: darken($elatedBackground,20%);
+$elatedText: #000000;
+$elatedHighlight: #ed6a5a;
+/*SUNSET*/
+$sunsetBackground: #a53860;
+$sunsetBackgroundDarker: darken($sunsetBackground,10%);
+$sunsetText: #0b032d;
+$sunsetHighlight: #ff923f;
+/*HORROR*/
+$horrorBackground: #300000;
+$horrorBackgroundDarker: darken($horrorBackground,10%);
+$horrorText: #ffffff;
+$horrorHighlight: #8a1717;
+
 
 $quick: 1s;
 $medium: 2s;
@@ -73,6 +89,15 @@ $timing: ease;
     }
     &--ghastly .poem__line {
         background-color: $ghastlyHighlight;
+    }
+    &--elated .poem__line {
+        background-color: $elatedHighlight;
+    }
+    &--sunset .poem__line {
+        background-color: $sunsetHighlight;
+    }
+    &--horror .poem__line {
+        background-color: $horrorHighlight;
     }
 }
 
@@ -110,6 +135,18 @@ $timing: ease;
         background-color: $ghastlyBackground;
         color: $ghastlyText;
     }
+    &--elated {
+        background-color: $elatedBackground;
+        color: $elatedText;
+    }
+    &--sunset {
+        background-color: $sunsetBackground;
+        color: $sunsetText;
+    }
+    &--horror {
+        background-color: $horrorBackground;
+        color: $horrorText;
+    }
 }
 
 .header, .footer {
@@ -136,6 +173,15 @@ $timing: ease;
     }
     &--ghastly {
         background-color: $ghastlyBackgroundDarker;
+    }
+    &--elated {
+        background-color: $elatedBackgroundDarker;
+    }
+    &--sunset {
+        background-color: $sunsetBackgroundDarker;
+    }
+    &--horror {
+        background-color: $horrorBackgroundDarker;
     }
 }
 
@@ -190,6 +236,24 @@ $timing: ease;
         color: $ghastlyText;
         &:hover {
             color: lighten($ghastlyHighlight,10%);
+        }
+    }
+    &--elated {
+        color: $elatedText;
+        &:hover {
+            color: lighten($elatedHighlight,10%);
+        }
+    }
+    &--sunset {
+        color: $sunsetText;
+        &:hover {
+            color: lighten($sunsetHighlight,10%);
+        }
+    }
+    &--horror {
+        color: $horrorText;
+        &:hover {
+            color: lighten($horrorHighlight,10%);
         }
     }
 }

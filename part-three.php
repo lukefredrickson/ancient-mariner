@@ -36,6 +36,7 @@ if ($file) {
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/poem.css">
+    <link rel="stylesheet" href="styles/moods.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Part 3 &#124; Rime of the Ancient Mariner</title>
     <script type="text/javascript">
