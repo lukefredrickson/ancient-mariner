@@ -11,18 +11,6 @@
     overflow: hidden;
 }
 
-.background-video-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    z-index: -999;
-    background:
-        radial-gradient(transparent, black),
-        rgba(0, 0, 0, 0.5);
-}
-
 .hero {
     position: fixed;
     right: 0;
@@ -32,6 +20,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.hero--overlay {
+    background:
+        radial-gradient(transparent, black),
+        rgba(0, 0, 0, 0.5);
 }
 
 .title-header {
