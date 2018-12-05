@@ -9,6 +9,8 @@
 /*ELATED*/
 /*SUNSET*/
 /*HORROR*/
+/*SPIRIT ONE*/
+/*SPIRIT TWO*/
 .poem__stanza .poem__line {
   -webkit-transition: background-color 1s ease;
   transition: background-color 1s ease;
@@ -51,11 +53,19 @@
 }
 
 .poem__stanza--highlighted--sunset .poem__line {
-  background-color: #ff923f;
+  background-color: #ed6a5a;
 }
 
 .poem__stanza--highlighted--horror .poem__line {
   background-color: #8a1717;
+}
+
+.poem__stanza--highlighted--spirit-one .poem__line {
+  background-color: #828fff;
+}
+
+.poem__stanza--highlighted--spirit-two .poem__line {
+  background-color: #9c85ff;
 }
 
 .primary-content, .header, .footer {
@@ -109,13 +119,23 @@
 }
 
 .primary-content--sunset, .header--sunset, .footer--sunset {
-  background-color: #a53860;
+  background-color: #ffb95d;
   color: #0b032d;
 }
 
 .primary-content--horror, .header--horror, .footer--horror {
   background-color: #300000;
   color: #ffffff;
+}
+
+.primary-content--spirit-one, .header--spirit-one, .footer--spirit-one {
+  background-color: #d1d4ff;
+  color: #2b2b33;
+}
+
+.primary-content--spirit-two, .header--spirit-two, .footer--spirit-two {
+  background-color: #dad1ff;
+  color: #28262e;
 }
 
 .header--party, .footer--party {
@@ -155,11 +175,19 @@
 }
 
 .header--sunset, .footer--sunset {
-  background-color: #7f2b4a;
+  background-color: #ffa32a;
 }
 
 .header--horror, .footer--horror {
   background-color: black;
+}
+
+.header--spirit-one, .footer--spirit-one {
+  background-color: #9ea4ff;
+}
+
+.header--spirit-two, .footer--spirit-two {
+  background-color: #b19eff;
 }
 
 .next-previous__link, .nav__link, .footer__link {
@@ -249,7 +277,7 @@
 }
 
 .next-previous__link--sunset:hover, .nav__link--sunset:hover, .footer__link--sunset:hover {
-  color: #ffaf72;
+  color: #f29488;
 }
 
 .next-previous__link--horror, .nav__link--horror, .footer__link--horror {
@@ -258,5 +286,21 @@
 
 .next-previous__link--horror:hover, .nav__link--horror:hover, .footer__link--horror:hover {
   color: #b61e1e;
+}
+
+.next-previous__link--spirit-one, .nav__link--spirit-one, .footer__link--spirit-one {
+  color: #2b2b33;
+}
+
+.next-previous__link--spirit-one:hover, .nav__link--spirit-one:hover, .footer__link--spirit-one:hover {
+  color: #4f61ff;
+}
+
+.next-previous__link--spirit-two, .nav__link--spirit-two, .footer__link--spirit-two {
+  color: #28262e;
+}
+
+.next-previous__link--spirit-two:hover, .nav__link--spirit-two:hover, .footer__link--spirit-two:hover {
+  color: #7352ff;
 }
 /*# sourceMappingURL=moods.css.map */

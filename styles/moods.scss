@@ -44,15 +44,26 @@ $elatedBackgroundDarker: darken($elatedBackground,20%);
 $elatedText: #000000;
 $elatedHighlight: #ed6a5a;
 /*SUNSET*/
-$sunsetBackground: #a53860;
+$sunsetBackground: #ffb95d;
 $sunsetBackgroundDarker: darken($sunsetBackground,10%);
 $sunsetText: #0b032d;
-$sunsetHighlight: #ff923f;
+$sunsetHighlight: #ed6a5a;
 /*HORROR*/
 $horrorBackground: #300000;
 $horrorBackgroundDarker: darken($horrorBackground,10%);
 $horrorText: #ffffff;
 $horrorHighlight: #8a1717;
+/*SPIRIT ONE*/
+$spiritOneBackground: #d1d4ff;
+$spiritOneBackgroundDarker: darken($spiritOneBackground,10%);
+$spiritOneText: #2b2b33;
+$spiritOneHighlight: #828fff;
+/*SPIRIT TWO*/
+$spiritTwoBackground: #dad1ff;
+$spiritTwoBackgroundDarker: darken($spiritTwoBackground,10%);
+$spiritTwoText: #28262e;
+$spiritTwoHighlight: #9c85ff;
+
 
 
 $quick: 1s;
@@ -98,6 +109,12 @@ $timing: ease;
     }
     &--horror .poem__line {
         background-color: $horrorHighlight;
+    }
+    &--spirit-one .poem__line {
+        background-color: $spiritOneHighlight;
+    }
+    &--spirit-two .poem__line {
+        background-color: $spiritTwoHighlight;
     }
 }
 
@@ -147,6 +164,14 @@ $timing: ease;
         background-color: $horrorBackground;
         color: $horrorText;
     }
+    &--spirit-one {
+        background-color: $spiritOneBackground;
+        color: $spiritOneText;
+    }
+    &--spirit-two {
+        background-color: $spiritTwoBackground;
+        color: $spiritTwoText;
+    }
 }
 
 .header, .footer {
@@ -182,6 +207,12 @@ $timing: ease;
     }
     &--horror {
         background-color: $horrorBackgroundDarker;
+    }
+    &--spirit-one {
+        background-color: $spiritOneBackgroundDarker;
+    }
+    &--spirit-two {
+        background-color: $spiritTwoBackgroundDarker;
     }
 }
 
@@ -254,6 +285,18 @@ $timing: ease;
         color: $horrorText;
         &:hover {
             color: lighten($horrorHighlight,10%);
+        }
+    }
+    &--spirit-one {
+        color: $spiritOneText;
+        &:hover {
+            color: darken($spiritOneHighlight,10%);
+        }
+    }
+    &--spirit-two {
+        color: $spiritTwoText;
+        &:hover {
+            color: darken($spiritTwoHighlight,10%);
         }
     }
 }
