@@ -10,7 +10,7 @@ console.log(stanzaMoods);
 var lastHighlightedStanzaID = -1;
 var lastMood = "";
 var moodClasses = ["poem__stanza--highlighted", "primary-content", "header",
-                        "footer", "next-previous__link", "nav__link", "footer__link"];
+                        "footer", "next-previous__link", "nav__link", "nav__link--active", "footer__link"];
 
 function update() {
     let currentIndex = checkCurrentStanza()

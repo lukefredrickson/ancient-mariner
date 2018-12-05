@@ -303,4 +303,56 @@
 .next-previous__link--spirit-two:hover, .nav__link--spirit-two:hover, .footer__link--spirit-two:hover {
   color: #7352ff;
 }
+
+.nav__link--active--party {
+  color: #c06654;
+}
+
+.nav__link--active--party-ominous {
+  color: #913225;
+}
+
+.nav__link--active--hopeful {
+  color: #ffbc02;
+}
+
+.nav__link--active--ominous {
+  color: #5e83a3;
+}
+
+.nav__link--active--death {
+  color: #9677ac;
+}
+
+.nav__link--active--ice {
+  color: #0d8a5a;
+}
+
+.nav__link--active--stagnant {
+  color: #725c68;
+}
+
+.nav__link--active--ghastly {
+  color: #459345;
+}
+
+.nav__link--active--elated {
+  color: #f29488;
+}
+
+.nav__link--active--sunset {
+  color: #f29488;
+}
+
+.nav__link--active--horror {
+  color: #b61e1e;
+}
+
+.nav__link--active--spirit-one {
+  color: #4f61ff;
+}
+
+.nav__link--active--spirit-two {
+  color: #7352ff;
+}
 /*# sourceMappingURL=moods.css.map */

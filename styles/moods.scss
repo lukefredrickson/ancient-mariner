@@ -300,3 +300,45 @@ $timing: ease;
         }
     }
 }
+
+.nav__link--active {
+    &--party {
+        color: $partyHighlight;
+    }
+    &--party-ominous {
+        color: $partyOminousHighlight;
+    }
+    &--hopeful {
+        color: darken($hopefulHighlight,20%);
+    }
+    &--ominous {
+        color: lighten($ominousHighlight,10%);
+    }
+    &--death {
+        color: lighten($deathHighlight,20%);
+    }
+    &--ice {
+        color: darken($iceHighlight,20%);
+    }
+    &--stagnant {
+        color: darken($stagnantHighlight,20%);
+    }
+    &--ghastly {
+        color: lighten($ghastlyHighlight,10%);
+    }
+    &--elated {
+        color: lighten($elatedHighlight,10%);
+    }
+    &--sunset {
+        color: lighten($sunsetHighlight,10%);
+    }
+    &--horror {
+        color: lighten($horrorHighlight,10%);
+    }
+    &--spirit-one {
+        color: darken($spiritOneHighlight,10%);
+    }
+    &--spirit-two {
+        color: darken($spiritTwoHighlight,10%);
+    }
+}
