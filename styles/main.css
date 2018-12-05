@@ -103,3 +103,13 @@
 .copyright {
     margin: 0.1rem;
 }
+
+.nav__link, .footer__link {
+    -webkit-transition: color 1s ease;
+    transition: color 1s ease;
+}
+
+.nav__link:hover, .footer__link:hover {
+    -webkit-transition: color 0.25s ease;
+    transition: color 0.25s ease;
+}

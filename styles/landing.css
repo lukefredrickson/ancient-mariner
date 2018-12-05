@@ -59,7 +59,7 @@
 }
 
 .title-header__link:hover {
-    color: lightsteelblue;
+    color: #add8e6;
 }
 
 .nav {
@@ -91,5 +91,16 @@
 }
 
 .nav__link:hover {
-    color: lightsteelblue;
+    color: #add8e6;
+}
+
+
+.nav__link, .title-header__link {
+    -webkit-transition: color 1s ease;
+    transition: color 1s ease;
+}
+
+.nav__link:hover, .title-header__link:hover {
+    -webkit-transition: color 0.25s ease;
+    transition: color 0.25s ease;
 }

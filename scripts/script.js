@@ -9,6 +9,8 @@ console.log(stanzaStartTimes);
 console.log(stanzaMoods);
 var lastHighlightedStanzaID = -1;
 var lastMood = "";
+var moodClasses = ["poem__stanza--highlighted", "primary-content", "header",
+                        "footer", "next-previous__link", "nav__link", "footer__link"];
 
 function update() {
     let currentIndex = checkCurrentStanza()
@@ -41,24 +43,33 @@ function checkCurrentStanza() {
     return idIndex;
 }
 
-function updateMood(mood) {
-    updateMoodByClassName("primary-content", mood);
-    updateMoodByClassName("poem", mood);
-    updateMoodByClassName("poem__stanza--highlighted", mood);
-    updateMoodByClassName("next-previous__link", mood);
-    updateMoodByClassName("header", mood);
-    updateMoodByClassName("nav__link", mood);
-    updateMoodByClassName("footer", mood);
-    updateMoodByClassName("footer__link", mood);
-}
-
-function updateMoodByClassName(className, mood) {
+function updateByClassName(className, callback) {
     let elements = document.getElementsByClassName(className);
     Array.prototype.forEach.call(elements, (element) => {
-        if ( lastMood != "" ) {
-            element.classList.remove(className+"--"+lastMood);
-        }
-        element.classList.add(className+"--"+mood);
+        callback(element);
+    });
+}
+
+function updateMood(mood) {
+    moodClasses.forEach(className => {
+        updateByClassName(className, (element) => {
+            if ( lastMood != "" ) {
+                element.classList.remove(className+"--"+lastMood);
+            }
+            element.classList.add(className+"--"+mood);
+        });
+    });
+}
+
+function clearMood() {
+    moodClasses.forEach(className => {
+        updateByClassName(className, (element) => {
+            if ( lastMood == "" ) {
+                element.classList.remove(className+"--");
+            } else {
+                element.classList.remove(className+"--"+lastMood);
+            }
+        });
     });
 }
 
@@ -66,8 +77,7 @@ function updateHighlight(id) {
     let highlightedClass = "poem__stanza--highlighted"
     let highlightedClassWithMood = highlightedClass+"--"+lastMood;
 
-    let oldStanzas = document.getElementsByClassName(highlightedClass);
-    Array.prototype.forEach.call(oldStanzas, (element) => {
+    updateByClassName(highlightedClass, (element) => {
         element.classList.remove(highlightedClass);
         element.classList.remove(highlightedClassWithMood);
     });
@@ -95,6 +105,8 @@ player.onended = () => {
         clearInterval(timerId);
         //clear highlight
         updateHighlight(-1);
+        //clear mood
+        clearMood();
     }
 };
 

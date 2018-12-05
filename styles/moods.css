@@ -1,8 +1,9 @@
 /*PARTY*/
 /*PARTY OMINOUS*/
 /*HOPEFUL*/
-/*STORM*/
+/*OMINOUS*/
 /*ICE*/
+/*STAGNANT*/
 /*GHASTLY*/
 .poem__stanza .poem__line {
   -webkit-transition: background-color 1s ease;
@@ -10,97 +11,99 @@
 }
 
 .poem__stanza--highlighted--party .poem__line {
-  background-color: #df5135;
+  background-color: #ce533a;
 }
 
 .poem__stanza--highlighted--party-ominous .poem__line {
-  background-color: #c42915;
+  background-color: #913225;
 }
 
 .poem__stanza--highlighted--hopeful .poem__line {
-  background-color: #ffca3a;
+  background-color: #ffd768;
 }
 
-.poem__stanza--highlighted--storm .poem__line {
+.poem__stanza--highlighted--ominous .poem__line {
   background-color: #4b6983;
 }
 
 .poem__stanza--highlighted--ice .poem__line {
-  background-color: #19c583;
+  background-color: #15e797;
+}
+
+.poem__stanza--highlighted--stagnant .poem__line {
+  background-color: #a58f9b;
 }
 
 .poem__stanza--highlighted--ghastly .poem__line {
-  background-color: #007700;
+  background-color: #357035;
 }
 
-.primary-content {
+.primary-content, .header, .footer {
   -webkit-transition: background-color 2s ease, color 2s ease;
   transition: background-color 2s ease, color 2s ease;
 }
 
-.primary-content--party {
+.primary-content--party, .header--party, .footer--party {
   background-color: #1e2b41;
   color: #f8e8e2;
 }
 
-.primary-content--party-ominous {
-  background-color: #161f30;
-  color: #f8e8e2;
-}
-
-.primary-content--hopeful {
-  background-color: #cadce6;
-  color: #192835;
-}
-
-.primary-content--storm {
-  background-color: #0d1321;
-  color: #ffffff;
-}
-
-.primary-content--ice {
-  background-color: #b5fcf0;
-  color: #172623;
-}
-
-.primary-content--ghastly {
-  background-color: #232c23;
-  color: #eaf0ce;
-}
-
-.header, .footer {
-  -webkit-transition: background-color 2s ease, color 2s ease;
-  transition: background-color 2s ease, color 2s ease;
-}
-
-.header--party, .footer--party {
+.primary-content--party-ominous, .header--party-ominous, .footer--party-ominous {
   background-color: #0e141e;
   color: #f8e8e2;
 }
 
+.primary-content--hopeful, .header--hopeful, .footer--hopeful {
+  background-color: #cadce6;
+  color: #192835;
+}
+
+.primary-content--ominous, .header--ominous, .footer--ominous {
+  background-color: #0d1321;
+  color: #ffffff;
+}
+
+.primary-content--ice, .header--ice, .footer--ice {
+  background-color: #b5fcf0;
+  color: #172623;
+}
+
+.primary-content--stagnant, .header--stagnant, .footer--stagnant {
+  background-color: #c6c7c4;
+  color: #3a3a3a;
+}
+
+.primary-content--ghastly, .header--ghastly, .footer--ghastly {
+  background-color: #202b20;
+  color: #eaf0ce;
+}
+
+.header--party, .footer--party {
+  background-color: #0e141e;
+}
+
 .header--party-ominous, .footer--party-ominous {
-  background-color: #06080d;
-  color: #f8e8e2;
+  background-color: black;
 }
 
 .header--hopeful, .footer--hopeful {
   background-color: #a7c5d6;
-  color: #192835;
 }
 
-.header--storm, .footer--storm {
+.header--ominous, .footer--ominous {
   background-color: black;
-  color: #ffffff;
 }
 
 .header--ice, .footer--ice {
   background-color: #84fae6;
-  color: #172623;
+}
+
+.header--stagnant, .footer--stagnant {
+  background-color: #adaeaa;
 }
 
 .header--ghastly, .footer--ghastly {
-  background-color: #0c100c;
-  color: #eaf0ce;
+  background-color: #0a0e0a;
 }
 
 .next-previous__link, .nav__link, .footer__link {
@@ -118,7 +121,7 @@
 }
 
 .next-previous__link--party:hover, .nav__link--party:hover, .footer__link--party:hover {
-  color: #df5135;
+  color: #ce533a;
 }
 
 .next-previous__link--party-ominous, .nav__link--party-ominous, .footer__link--party-ominous {
@@ -126,7 +129,7 @@
 }
 
 .next-previous__link--party-ominous:hover, .nav__link--party-ominous:hover, .footer__link--party-ominous:hover {
-  color: #c42915;
+  color: #913225;
 }
 
 .next-previous__link--hopeful, .nav__link--hopeful, .footer__link--hopeful {
@@ -134,15 +137,15 @@
 }
 
 .next-previous__link--hopeful:hover, .nav__link--hopeful:hover, .footer__link--hopeful:hover {
-  color: #ffca3a;
+  color: #ffbc02;
 }
 
-.next-previous__link--storm, .nav__link--storm, .footer__link--storm {
+.next-previous__link--ominous, .nav__link--ominous, .footer__link--ominous {
   color: #ffffff;
 }
 
-.next-previous__link--storm:hover, .nav__link--storm:hover, .footer__link--storm:hover {
-  color: #4b6983;
+.next-previous__link--ominous:hover, .nav__link--ominous:hover, .footer__link--ominous:hover {
+  color: #5e83a3;
 }
 
 .next-previous__link--ice, .nav__link--ice, .footer__link--ice {
@@ -150,7 +153,15 @@
 }
 
 .next-previous__link--ice:hover, .nav__link--ice:hover, .footer__link--ice:hover {
-  color: #19c583;
+  color: #0d8a5a;
+}
+
+.next-previous__link--stagnant, .nav__link--stagnant, .footer__link--stagnant {
+  color: #3a3a3a;
+}
+
+.next-previous__link--stagnant:hover, .nav__link--stagnant:hover, .footer__link--stagnant:hover {
+  color: #725c68;
 }
 
 .next-previous__link--ghastly, .nav__link--ghastly, .footer__link--ghastly {
@@ -158,6 +169,6 @@
 }
 
 .next-previous__link--ghastly:hover, .nav__link--ghastly:hover, .footer__link--ghastly:hover {
-  color: #007700;
+  color: #459345;
 }
 /*# sourceMappingURL=moods.css.map */

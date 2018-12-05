@@ -2,32 +2,37 @@
 $partyBackground: #1e2b41;
 $partyBackgroundDarker: darken($partyBackground,10%);
 $partyText: #f8e8e2;
-$partyHighlight: #df5135;
+$partyHighlight: #ce533a;
 /*PARTY OMINOUS*/
-$partyOminousBackground: darken($partyBackground, 5%);
+$partyOminousBackground: darken($partyBackground, 10%);
 $partyOminousBackgroundDarker: darken($partyOminousBackground,10%);
 $partyOminousText: $partyText;
-$partyOminousHighlight: #c42915;
+$partyOminousHighlight: #913225;
 /*HOPEFUL*/
 $hopefulBackground: #cadce6;
 $hopefulBackgroundDarker: darken($hopefulBackground,10%);
 $hopefulText: #192835;
-$hopefulHighlight: #ffca3a;
-/*STORM*/
-$stormBackground: #0d1321;
-$stormBackgroundDarker: darken($stormBackground,10%);
-$stormText: #ffffff;
-$stormHighlight: #4b6983;
+$hopefulHighlight: #ffd768;
+/*OMINOUS*/
+$ominousBackground: #0d1321;
+$ominousBackgroundDarker: darken($ominousBackground,10%);
+$ominousText: #ffffff;
+$ominousHighlight: #4b6983;
 /*ICE*/
 $iceBackground: #b5fcf0;
 $iceBackgroundDarker: darken($iceBackground,10%);
 $iceText: #172623;
-$iceHighlight: #19c583;
+$iceHighlight: #15e797;
+/*STAGNANT*/
+$stagnantBackground: #c6c7c4;
+$stagnantBackgroundDarker: darken($stagnantBackground,10%);
+$stagnantText: #3a3a3a;
+$stagnantHighlight: #a58f9b;
 /*GHASTLY*/
-$ghastlyBackground: #232c23;
+$ghastlyBackground: #202b20;
 $ghastlyBackgroundDarker: darken($ghastlyBackground,10%);
 $ghastlyText: #eaf0ce;
-$ghastlyHighlight: #007700;
+$ghastlyHighlight: #357035;
 
 $quick: 1s;
 $medium: 2s;
@@ -49,18 +54,21 @@ $timing: ease;
     &--hopeful .poem__line {
         background-color: $hopefulHighlight;
     }
-    &--storm .poem__line {
-        background-color: $stormHighlight;
+    &--ominous .poem__line {
+        background-color: $ominousHighlight;
     }
     &--ice .poem__line {
         background-color: $iceHighlight;
+    }
+    &--stagnant .poem__line {
+        background-color: $stagnantHighlight;
     }
     &--ghastly .poem__line {
         background-color: $ghastlyHighlight;
     }
 }
 
-.primary-content {
+.primary-content, .header, .footer {
     transition: background-color $medium $timing, color $medium $timing;
     &--party {
         background-color: $partyBackground;
@@ -74,13 +82,17 @@ $timing: ease;
         background-color: $hopefulBackground;
         color: $hopefulText;
     }
-    &--storm {
-        background-color: $stormBackground;
-        color: $stormText;
+    &--ominous {
+        background-color: $ominousBackground;
+        color: $ominousText;
     }
     &--ice {
         background-color: $iceBackground;
         color: $iceText;
+    }
+    &--stagnant {
+        background-color: $stagnantBackground;
+        color: $stagnantText;
     }
     &--ghastly {
         background-color: $ghastlyBackground;
@@ -89,30 +101,26 @@ $timing: ease;
 }
 
 .header, .footer {
-    transition: background-color $medium $timing, color $medium $timing;
     &--party {
         background-color: $partyBackgroundDarker;
-        color: $partyText;
     }
     &--party-ominous {
         background-color: $partyOminousBackgroundDarker;
-        color: $partyOminousText;
     }
     &--hopeful {
         background-color: $hopefulBackgroundDarker;
-        color: $hopefulText;
     }
-    &--storm {
-        background-color: $stormBackgroundDarker;
-        color: $stormText;
+    &--ominous {
+        background-color: $ominousBackgroundDarker;
     }
     &--ice {
         background-color: $iceBackgroundDarker;
-        color: $iceText;
+    }
+    &--stagnant {
+        background-color: $stagnantBackgroundDarker;
     }
     &--ghastly {
         background-color: $ghastlyBackgroundDarker;
-        color: $ghastlyText;
     }
 }
 
@@ -136,25 +144,31 @@ $timing: ease;
     &--hopeful {
         color: $hopefulText;
         &:hover {
-            color: $hopefulHighlight;
+            color: darken($hopefulHighlight,20%);
         }
     }
-    &--storm {
-        color: $stormText;
+    &--ominous {
+        color: $ominousText;
         &:hover {
-            color: $stormHighlight;
+            color: lighten($ominousHighlight,10%);
         }
     }
     &--ice {
         color: $iceText;
         &:hover {
-            color: $iceHighlight;
+            color: darken($iceHighlight,20%);
+        }
+    }
+    &--stagnant {
+        color: $stagnantText;
+        &:hover {
+            color: darken($stagnantHighlight,20%);
         }
     }
     &--ghastly {
         color: $ghastlyText;
         &:hover {
-            color: $ghastlyHighlight;
+            color: lighten($ghastlyHighlight,10%);
         }
     }
 }
