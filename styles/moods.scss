@@ -23,6 +23,11 @@ $iceBackground: #b5fcf0;
 $iceBackgroundDarker: darken($iceBackground,10%);
 $iceText: #172623;
 $iceHighlight: #15e797;
+/*DEATH*/
+$deathBackground: #100c14;
+$deathBackgroundDarker: darken($deathBackground,10%);
+$deathText: #e6dbf9;
+$deathHighlight: #624875;
 /*STAGNANT*/
 $stagnantBackground: #c6c7c4;
 $stagnantBackgroundDarker: darken($stagnantBackground,10%);
@@ -60,6 +65,9 @@ $timing: ease;
     &--ice .poem__line {
         background-color: $iceHighlight;
     }
+    &--death .poem__line {
+        background-color: $deathHighlight;
+    }
     &--stagnant .poem__line {
         background-color: $stagnantHighlight;
     }
@@ -90,6 +98,10 @@ $timing: ease;
         background-color: $iceBackground;
         color: $iceText;
     }
+    &--death {
+        background-color: $deathBackground;
+        color: $deathText;
+    }
     &--stagnant {
         background-color: $stagnantBackground;
         color: $stagnantText;
@@ -115,6 +127,9 @@ $timing: ease;
     }
     &--ice {
         background-color: $iceBackgroundDarker;
+    }
+    &--death {
+        background-color: $deathBackgroundDarker;
     }
     &--stagnant {
         background-color: $stagnantBackgroundDarker;
@@ -151,6 +166,12 @@ $timing: ease;
         color: $ominousText;
         &:hover {
             color: lighten($ominousHighlight,10%);
+        }
+    }
+    &--death {
+        color: $deathText;
+        &:hover {
+            color: lighten($deathHighlight,20%);
         }
     }
     &--ice {

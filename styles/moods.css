@@ -3,6 +3,7 @@
 /*HOPEFUL*/
 /*OMINOUS*/
 /*ICE*/
+/*DEATH*/
 /*STAGNANT*/
 /*GHASTLY*/
 .poem__stanza .poem__line {
@@ -28,6 +29,10 @@
 
 .poem__stanza--highlighted--ice .poem__line {
   background-color: #15e797;
+}
+
+.poem__stanza--highlighted--death .poem__line {
+  background-color: #624875;
 }
 
 .poem__stanza--highlighted--stagnant .poem__line {
@@ -68,6 +73,11 @@
   color: #172623;
 }
 
+.primary-content--death, .header--death, .footer--death {
+  background-color: #100c14;
+  color: #e6dbf9;
+}
+
 .primary-content--stagnant, .header--stagnant, .footer--stagnant {
   background-color: #c6c7c4;
   color: #3a3a3a;
@@ -96,6 +106,10 @@
 
 .header--ice, .footer--ice {
   background-color: #84fae6;
+}
+
+.header--death, .footer--death {
+  background-color: black;
 }
 
 .header--stagnant, .footer--stagnant {
@@ -146,6 +160,14 @@
 
 .next-previous__link--ominous:hover, .nav__link--ominous:hover, .footer__link--ominous:hover {
   color: #5e83a3;
+}
+
+.next-previous__link--death, .nav__link--death, .footer__link--death {
+  color: #e6dbf9;
+}
+
+.next-previous__link--death:hover, .nav__link--death:hover, .footer__link--death:hover {
+  color: #9677ac;
 }
 
 .next-previous__link--ice, .nav__link--ice, .footer__link--ice {
