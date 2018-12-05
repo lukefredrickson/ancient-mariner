@@ -26,12 +26,15 @@ if ($file) {
 
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Luke Fredrickson">
+    <meta name="description" content="The Rime of the Ancient Mariner is a multi-media storytelling experience featuring Samuel Taylor Coleridge's famous poem of the same name, and a dramatic narration and musical accompaniment from Ian Doescher. The website adapts to the ebbs and flows of the Coleridge's tale and Doescher's narration by morphing its styles to match the current mood.">
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -39,7 +42,7 @@ if ($file) {
     <link rel="stylesheet" href="styles/moods.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Part 6 &#124; Rime of the Ancient Mariner</title>
-    <script type="text/javascript">
+    <script>
         let poemData = <?php echo json_encode($poemData);?>;
         console.log(poemData);
     </script>
@@ -54,13 +57,15 @@ if ($file) {
             <?php
                 //id each stanza with it's start time (seconds)
                 foreach ($poemData as $stanzaData) {
-                    $lineData = explode("\n",$stanzaData[0]);
-                    echo "<p id=\"$stanzaData[1]\" class=\"poem__stanza\">";
-                    foreach($lineData as $line) {
-                        //span for highlighting individual lines, not whole p block
-                        echo "<span class=\"poem__line\">$line\n</span>";
+                    if ($stanzaData != "") {
+                        $lineData = explode("\n",$stanzaData[0]);
+                        echo "<p id=\"$stanzaData[1]\" class=\"poem__stanza\">";
+                        foreach($lineData as $line) {
+                            //span for highlighting individual lines, not whole p block
+                            echo "<span class=\"poem__line\">$line\n</span>";
+                        }
+                        echo "</p>";
                     }
-                    echo "</p>";
                 }
             ?>
         </article>
@@ -77,8 +82,6 @@ if ($file) {
         <source src="data/doescher-reading/part6.mp3" type="audio/mpeg">
     </audio>
     <?php include("audio-player.php");?>
+    <script src="scripts/script.js"></script>
 </body>
-
-<script type="text/javascript" src="scripts/script.js"></script>
-
 </html>

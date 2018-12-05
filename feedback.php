@@ -88,12 +88,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Luke Fredrickson">
+    <meta name="description" content="The Rime of the Ancient Mariner is a multi-media storytelling experience featuring Samuel Taylor Coleridge's famous poem of the same name, and a dramatic narration and musical accompaniment from Ian Doescher. The website adapts to the ebbs and flows of the Coleridge's tale and Doescher's narration by morphing its styles to match the current mood.">
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -138,23 +141,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             }
         ?>
         <form action="<?php echo(htmlspecialchars($_SERVER["PHP_SELF"], ENT_QUOTES, "UTF-8")); ?>" id="feedback-form" class="feedback-form" method="post">
-            <section class="feedback-form__section">
-                <label class="feedback-form__label">First Name*</label>
+            <fieldset class="feedback-form__section">
+                <legend class="feedback-form__label">First Name*</legend>
                 <input class="feedback-form__text-input <?php if ($nameError) echo "feedback-form__text-input--error"?>"
                 value="<?php echo $name;?>" type="text" maxlength="50" name="name">
-            </section>
+            </fieldset>
             
-            <section class="feedback-form__section">
-                <label class="feedback-form__label">Email*</label>
+            <fieldset class="feedback-form__section">
+                <legend class="feedback-form__label">Email*</legend>
                 <input class="feedback-form__text-input <?php if ($emailError) echo "feedback-form__text-input--error"?>"
                     value="<?php echo $email;?>" type="text" maxlength="50" name="email">
-            </section>
+            </fieldset>
 
-            <section class="feedback-form__section">
-                <label class="feedback-form__label">Reason for Feedback</label>
+            <fieldset class="feedback-form__section">
+                <legend class="feedback-form__label">Reason for Feedback</legend>
                 <select class="feedback-form__dropdown" name="reason">
-                    <option <?php if ($reason=="") echo("selected");?>
-                        value=""></option>
+                    <option <?php if ($reason=="Unspecified") echo("selected");?>
+                        value="Unspecified">Unspecified</option>
                     <option <?php if ($reason=="Contact Luke") echo("selected");?>
                         value="Contact Luke">Contact Luke</option>
                     <option <?php if ($reason=="Found a bug") echo("selected");?>
@@ -162,10 +165,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                     <option <?php if ($reason=="Constructive critisism") echo("selected");?>
                         value="Constructive critisism">Constructive critisism</option>
                 </select>
-            </section>
+            </fieldset>
             
-            <section class="feedback-form__section">
-                <label class="feedback-form__label">Rating</label>
+            <fieldset class="feedback-form__section">
+                <legend class="feedback-form__label">Rating</legend>
                 <section class="feedback-form__radio-buttons">
                     <label class="feedback-form__radio-label">
                         <input class="feedback-form__radio" type="radio" name="rating" value="1"
@@ -193,10 +196,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                         5
                     </label>
                 </section>
-            </section>
+            </fieldset>
 
-            <section class="feedback-form__section">
-                <label class="feedback-form__label">What brought you here?</label>
+            <fieldset class="feedback-form__section">
+                <legend class="feedback-form__label">What brought you here?</legend>
                 <section class="feedback-form__checkboxes">
                     <label class="feedback-form__checkbox-label">
                         <input class="feedback-form__checkbox" type="checkbox" name="portfolio" value="portfolio"
@@ -219,16 +222,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                         Other
                     </label>
                 </section>
-            </section>
+            </fieldset>
             
-            <section class="feedback-form__section">
-                <label class="feedback-form__label">Comment</label>
+            <fieldset class="feedback-form__section">
+                <legend class="feedback-form__label">Comment</legend>
                 <textarea class="feedback-form__textarea" name="comment"><?php echo $comment;?></textarea>
-            </section>
+            </fieldset>
 
-            <section class="feedback-form__section">
+            <fieldset class="feedback-form__section">
                 <input class="feedback-form__button" id="submit" name="submit" type="submit" value="Submit Feedback">
-            </section>
+            </fieldset>
         </form>
         <?php
         }
